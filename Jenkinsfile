@@ -15,4 +15,3 @@ node {
             app.push('latest')
         }
     } 
-}
