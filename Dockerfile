@@ -4,6 +4,5 @@ FROM nginx
 WORKDIR /app
 
 # add app
-COPY . ./
-
+COPY . /usr/share/nginx/html
 
