@@ -16,10 +16,4 @@ node {
             app.push('latest')
         }
     } 
-    
-     stage('Deploy') {
-         steps {
-             sh 'helm list'
-         }
-     }
 }    
