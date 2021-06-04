@@ -19,6 +19,6 @@ node {
     
      stage('Deploy') {
 	 sh 'ls'
-	 sh 'helm upgrade --install --wait capstone ./home/master/helmcharts/'
+	 sh 'helm upgrade --install capstone ./capstone/'
     }
 }    
