@@ -17,11 +17,9 @@ node {
         }
     } 
     
-        stage('Deploy') {
-	    sh 'ls'
-	    sh 'helm version'
-	    sh 'exit'
-	    sh 'cd /home/master/helmcharts'
-	    sh '/usr/sbin/helm upgrade capstone ./capstone/'
+     stage('Deploy') {
+	 sh 'ls'
+	 sh 'helm version'
+	 sh '/usr/sbin/helm upgrade --install --wait capstone ./capstone/'
     }
 }    
