@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: capstoneproject
+  labels:
+    app: capstone
+
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: capstone
+      tier: web
+  template:
+    metadata:
+      labels:
+        app: capstone
+        tier: web
+    spec:
+      containers:
+      - name: capstone
+        image: kjsebastian1/capstone:latest
+        ports:
+        - containerPort: {{ .Values.service.port }}
+        resources:
+        {{ toYaml .Values.resources | nindent 12 }}
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: capstoneservice
+  labels:
+    app: capstone
+
+spec:
+  ports:
+  - name:
+    port: {{ .Values.service.port }}
+    targetPort: {{ .Values.service.targetPort }}
+  type: {{ .Values.service.type }}
+  selector:
+    app: capstone
+    tier: web
