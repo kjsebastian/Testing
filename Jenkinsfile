@@ -18,6 +18,7 @@ node {
     } 
     
      stage('Deploy K8s') {
-	 sh 'helm upgrade --install capstone ./capstone/'
+	 sh 'cd /home/master/helmcharts/'
+	 sh 'helm upgrade --install --wait capstone ./capstone/'
     }
 }    
