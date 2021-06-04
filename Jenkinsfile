@@ -20,6 +20,6 @@ node {
      stage('Deploy') {
 	 sh 'ls'
 	 sh 'helm version'
-	 sh '/usr/sbin/helm upgrade --wait capstone ./capstone'
+	 sh '/usr/local/bin/helm upgrade --wait capstone ./capstone'
     }
 }    
