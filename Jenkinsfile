@@ -19,6 +19,6 @@ node {
     
      stage('Deploy') {
 	 sh 'ls'
-	 sh 'helm upgrade --wait capstone ./capstone'
+	 sh 'helm upgrade --install --wait capstone ./capstone'
     }
 }    
