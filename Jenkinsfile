@@ -17,7 +17,7 @@ node {
         }
     } 
     
-     stage('Deploy') {
+     stage('Deploy K8s') {
 	 sh 'ls'
 	 sh 'helm upgrade --install capstone ./capstone/'
     }
