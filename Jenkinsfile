@@ -1,11 +1,11 @@
 node {
     def app
-
+    
     stage('Clone repository') {
         checkout scm
     }
 
-    stage('Build image') {
+    stage('Build Image') {
        app = docker.build("kjsebastian1/capstone")
     }
 
@@ -16,4 +16,10 @@ node {
             app.push('latest')
         }
     } 
+    
+        stage('Deployment') {
+	    sh 'ls'
+	    sh 'helm version'
+	    sh '/usr/sbin/helm helm upgrade capstone ./capstone/'
+    }
 }    
