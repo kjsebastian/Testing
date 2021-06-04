@@ -20,6 +20,7 @@ node {
         stage('Deploy') {
 	    sh 'ls'
 	    sh 'helm version'
+	    sh 'exit'
 	    sh 'cd /home/master/helmcharts'
 	    sh '/usr/sbin/helm upgrade capstone ./capstone/'
     }
